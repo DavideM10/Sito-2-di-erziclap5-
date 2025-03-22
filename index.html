@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
-    <div class="user-info">
-      <span id="username-display"></span> | <span id="score-display"></span>
-    </div>
-    <button id="logout-btn" onclick="logout()">Log Out</button>
+
+  <!-- Intestazione con il nome e il punteggio dell'utente -->
+  <div id="user-info" class="user-info">
+    <span id="user-name"></span>
+    <span id="user-score"></span>
   </div>
 
   <div class="game-buttons">
-    <button id="game1-btn" onclick="window.location.href='game1.html'">
-      <img src="img/number_game_icon.png" alt="Number Game">
-      <p>Gioco Numeri</p>
+    <button class="game-button" id="number-game-btn">
+      <div class="game-text">Gioco dei Numeri</div>
+      <img src="img/number_game_icon.png" alt="Number Game Icon" class="game-icon">
     </button>
-    <button id="game2-btn" onclick="window.location.href='blockbuster.html'">
-      <img src="img/blockbuster_game_icon.png" alt="Block Buster">
-      <p>Block Buster</p>
+    <button class="game-button" id="blockbuster-game-btn">
+      <div class="game-text">Block Buster</div>
+      <img src="img/blockbuster_game_icon.png" alt="Blockbuster Game Icon" class="game-icon">
     </button>
   </div>
+
+  <!-- Aggiungi il tasto di logout -->
+  <button id="logout-btn" class="logout-btn">Logout</button>
 
   <script src="index.js"></script>
 </body>
