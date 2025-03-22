@@ -16,68 +16,79 @@ body {
 }
 
 .home-container {
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 600px;
+  width: 80%;
+  max-width: 800px;
   text-align: center;
-}
-
-h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.game-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-button {
-  width: 120px;
-  height: 120px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 
-button:hover {
-  background-color: #45a049;
-}
-
-button img {
-  width: 60%; /* Adatta la dimensione dell'immagine */
-  height: 60%;
-  object-fit: cover;
-}
-
-button span {
-  position: absolute;
-  bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
 #logout-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 15px;
   background-color: #f44336;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 #logout-btn:hover {
   background-color: #d32f2f;
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.game-btn {
+  width: 200px;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-btn:hover {
+  background-color: #45a049;
+}
+
+.game-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-text {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+}
+
+.game-btn#game1 {
+  background-image: url('number_game_icon.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.game-btn#game2 {
+  background-image: url('blockbuster_game_icon.png');
+  background-size: cover;
+  background-position: center;
 }
