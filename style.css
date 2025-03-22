@@ -10,7 +10,8 @@ body {
   background-color: #f7f3b2; /* Giallo chiaro */
   color: #333;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   margin: 0;
@@ -19,12 +20,20 @@ body {
 .container {
   text-align: center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Per fare in modo che i pulsanti siano centrati */
 }
 
+/* Titolo - Centrato in alto */
 h1 {
   font-size: 32px;
+  margin-top: 20px;
   margin-bottom: 40px;
   font-weight: bold;
+  text-align: center; /* Centra il titolo */
 }
 
 /* Impostazioni per i pulsanti dei giochi */
@@ -60,17 +69,17 @@ h1 {
   background-image: url('blockbuster_game_icon.png'); /* Immagine del gioco 2 */
 }
 
-/* Pulsante per il logout */
+/* Pulsante per il logout - Posizione e dimensione */
 #logout-btn {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 8px 15px;
+  top: 15px;
+  left: 15px;
+  padding: 5px 10px;
   background-color: #333;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 12px; /* Più piccolo */
   cursor: pointer;
 }
 
