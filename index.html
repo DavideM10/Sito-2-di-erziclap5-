@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gioco Online</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Home Page con Login -->
-    <div class="home-container">
-        <!-- Tasto di logout -->
-        <button id="logout-btn">Logout</button>
+  <button id="logout-btn" onclick="logout()">Logout</button>
 
-        <!-- Sezione giochi -->
-        <div class="game-buttons">
-            <!-- Pulsante Gioco Numeri con Immagine -->
-            <button id="game1" class="game-btn">
-                <div class="game-text">Gioco Numeri</div>
-            </button>
+  <div class="container">
+    <h1>Benvenuto nel tuo Sito di Giochi!</h1>
 
-            <!-- Pulsante Block Buster con Immagine -->
-            <button id="game2" class="game-btn">
-                <div class="game-text">Block Buster</div>
-            </button>
-        </div>
+    <div id="game1-button" class="game-button" onclick="location.href = 'game1.html'">
+      Gioco Numeri
     </div>
 
-    <script src="index.js"></script>
+    <div id="game2-button" class="game-button" onclick="location.href = 'blockbuster.html'">
+      Block Buster
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      // Funzione di logout, per esempio per cancellare il sessionStorage o localStorage
+      localStorage.removeItem('loggedInUser');
+      window.location.href = 'login.html'; // Reindirizza alla pagina di login
+    }
+  </script>
 </body>
 </html>

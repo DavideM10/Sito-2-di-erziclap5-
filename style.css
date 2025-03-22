@@ -6,8 +6,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #fffae6; /* Giallo chiaro */
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f3b2; /* Giallo chiaro */
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,80 +16,68 @@ body {
   margin: 0;
 }
 
-.home-container {
-  width: 80%;
-  max-width: 800px;
+.container {
   text-align: center;
-  position: relative;
+  width: 100%;
 }
 
+h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Impostazioni per i pulsanti dei giochi */
+.game-button {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.game-button:hover {
+  transform: scale(1.1);
+}
+
+/* Icone dei giochi */
+#game1-button {
+  background-image: url('number_game_icon.png'); /* Immagine del gioco 1 */
+}
+
+#game2-button {
+  background-image: url('blockbuster_game_icon.png'); /* Immagine del gioco 2 */
+}
+
+/* Pulsante per il logout */
 #logout-btn {
   position: absolute;
   top: 20px;
   left: 20px;
   padding: 8px 15px;
-  background-color: #f44336;
+  background-color: #333;
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 5px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 #logout-btn:hover {
-  background-color: #d32f2f;
+  background-color: #555;
 }
 
-.game-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.game-btn {
-  width: 200px;
-  height: 200px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4CAF50;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.game-btn:hover {
-  background-color: #45a049;
-}
-
-.game-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.game-text {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  z-index: 1;
-}
-
-.game-btn#game1 {
-  background-image: url('number_game_icon.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.game-btn#game2 {
-  background-image: url('blockbuster_game_icon.png');
-  background-size: cover;
-  background-position: center;
+#logout-btn:active {
+  background-color: #222;
 }
