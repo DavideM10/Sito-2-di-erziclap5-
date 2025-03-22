@@ -1,35 +1,80 @@
-/* style.css */
+/* Stili di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  input[type="number"], input[type="text"], input[type="password"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-  }
-  
-  .game-container, .login-container, .register-container, .main-container {
-    text-align: center;
-    margin: 20px;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.games-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Stile per i pulsanti dei giochi */
+.game-btn {
+  width: 200px;
+  height: 200px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Stili per aggiungere le immagini di sfondo */
+#game1 {
+  background-image: url('img/number_game_icon.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#game2 {
+  background-image: url('img/blockbuster_game_icon.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.game-title {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.game-btn:focus {
+  outline: none;
+}

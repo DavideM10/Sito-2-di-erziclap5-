@@ -3,38 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benvenuto!</title>
+  <title>Home - Sito di Giochi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="main-container">
-    <h1>Benvenuto, <span id="user-name"></span></h1>
-    <button onclick="startGame1()">Indovina il Numero</button>
-    <button onclick="startBlockbuster()">Blockbuster</button>
-    <button onclick="logout()">Logout</button>
+  <div class="home-container">
+    <h1>Benvenuto nel nostro sito di giochi!</h1>
+    <div class="games-container">
+      <button class="game-btn" id="game1">
+        <span class="game-title">Indovina il Numero</span>
+      </button>
+      <button class="game-btn" id="game2">
+        <span class="game-title">Blockbuster</span>
+      </button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser) {
-      document.getElementById('user-name').textContent = currentUser.username;
-    } else {
-      window.location.href = 'login.html';
-    }
-
-    function startGame1() {
-      window.location.href = 'game1.html';
-    }
-
-    function startBlockbuster() {
-      window.location.href = 'blockbuster.html';
-    }
-
-    function logout() {
-      localStorage.removeItem('currentUser');
-      window.location.href = 'login.html';
-    }
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
