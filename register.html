@@ -4,18 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrazione</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="registrazione.css">
 </head>
 <body>
-  <div class="register-container">
+  <div class="form-container">
     <h1>Registrati</h1>
+    <p>Per registrarti chiedi al proprietario e inserisci i tuoi dati!</p>
+    
+    <!-- Form di registrazione -->
     <form id="register-form">
-      <input type="text" id="new-username" placeholder="Nome Utente" required>
+      <input type="text" id="new-username" placeholder="Nome utente" required><br>
       <input type="password" id="new-password" placeholder="Password" required>
       <button type="submit">Registrati</button>
     </form>
-    <p>Hai già un account? <a href="login.html">Accedi</a></p>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    // Funzione per mostrare la password (se vuoi aggiungere l'iconcina per rivelarla)
+    const showPasswordBtn = document.getElementById('show-password-btn');
+    const passwordInput = document.getElementById('new-password');
+    
+    showPasswordBtn.addEventListener('click', function() {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+      } else {
+        passwordInput.type = 'password';
+      }
+    });
+  </script>
 </body>
 </html>
