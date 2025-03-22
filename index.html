@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco e Punteggi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <h2>Benvenuto, <span id="user-name">Utente</span>!</h2>
+            <p>Punteggio: <span id="user-score">0</span></p>
+            <p>Token: <span id="user-tokens">0</span></p>
+        </div>
+
+        <div class="games">
+            <h3>Giochi:</h3>
+            <button onclick="startNumberGame()">Gioca a 'Indovina il numero'</button>
+            <p id="game-result"></p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
