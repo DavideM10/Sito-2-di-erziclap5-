@@ -1,107 +1,106 @@
-/* Reset di base */
-* {
+/* Impostazioni generali */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Sfondo grigio chiaro */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f3b2; /* Giallo chiaro */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
 
 /* Contenitore del gioco */
 .game-container {
   background-color: #fff;
-  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 450px;
-  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 300px;
 }
 
+/* Stile per il titolo */
 h1 {
-  font-size: 30px;
+  font-size: 24px;
   color: #333;
   margin-bottom: 20px;
 }
 
-#feedback {
+/* Stile per il punteggio */
+#score {
   font-size: 18px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-#user-input {
-  padding: 10px;
-  width: 80%;
-  font-size: 16px;
-  margin-bottom: 10px;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-}
-
-#submit-btn {
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-#submit-btn:hover {
-  background-color: #555;
-}
-
-#submit-btn:active {
-  background-color: #222;
-}
-
-.game-result {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #4CAF50;
+  margin-bottom: 20px;
   font-weight: bold;
 }
 
+/* Feedback dell'utente */
+#feedback {
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+/* Stile per il campo di input */
+#user-input {
+  padding: 10px;
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Pulsante indovina */
+#submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#submit-btn:hover {
+  background-color: #2ecc71;
+}
+
+/* Contenitore del risultato */
+#game-result {
+  display: none;
+}
+
+#game-result p {
+  font-size: 18px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Nascondi il risultato quando il gioco non è finito */
 .hidden {
   display: none;
 }
 
-#play-again-btn {
-  padding: 10px 20px;
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-#play-again-btn:hover {
-  background-color: #0b7dda;
-}
-
+/* Specifiche per il bottone "Torna alla Home" */
 #go-home-btn {
-  padding: 10px 20px;
-  background-color: #FF9800;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 10px;
+  background-color: #e74c3c;
 }
 
 #go-home-btn:hover {
-  background-color: #e68900;
+  background-color: #c0392b;
 }
