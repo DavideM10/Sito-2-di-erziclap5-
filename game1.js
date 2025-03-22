@@ -8,6 +8,7 @@ const gameResultElement = document.getElementById('game-result');
 const resultMessageElement = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again-btn');
 const goHomeButton = document.getElementById('go-home-btn');
+const scoreDisplay = document.getElementById('score-display'); // Elemento per il punteggio
 
 // Funzione per generare un numero casuale tra 1 e 100
 function generateRandomNumber() {
@@ -55,9 +56,9 @@ function goHome() {
   window.location.href = 'index.html'; // Reindirizza alla home
 }
 
-// Funzione per aggiornare il punteggio dell'utente nella home
+// Funzione per aggiornare il punteggio dell'utente sulla home
 function updateScoreDisplay() {
-  document.getElementById('score-display').textContent = `Punteggio: ${currentUser.score}`;
+  scoreDisplay.textContent = `Punteggio: ${currentUser.score}`;
 }
 
 // Event listeners

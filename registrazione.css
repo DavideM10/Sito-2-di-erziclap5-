@@ -1,58 +1,90 @@
-/* Style for the registration form */
+/* Corpo della pagina */
 body {
-    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Contenitore principale del form */
+  .form-container {
+    background-color: white;
+    padding: 30px; /* Maggiore spazio intorno agli input */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Aumenta la larghezza */
+    min-height: 300px; /* Maggiore altezza per far spazio a tutti gli input */
+  }
+  
+  /* Titolo del form */
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
     font-family: 'Arial', sans-serif;
   }
   
-  .form-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .form-field {
-    margin-bottom: 15px;
-  }
-  
+  /* Etichetta dei campi input */
   label {
     display: block;
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #555;
+    font-family: 'Arial', sans-serif;
   }
   
+  /* Input di testo e password */
   input[type="text"],
   input[type="password"],
   input[type="number"] {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 20px;
     border-radius: 5px;
-    box-sizing: border-box;
+    border: 1px solid #ddd;
+    font-size: 16px;
   }
   
-  button {
+  /* Input con un bordo più scuro quando l'utente scrive */
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus {
+    border: 1px solid #333;
+    outline: none;
+  }
+  
+  /* Pulsante di invio */
+  button[type="submit"] {
     width: 100%;
     padding: 12px;
-    font-size: 18px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
   }
   
-  button:hover {
+  /* Cambia il colore del pulsante quando l'utente passa il mouse */
+  button[type="submit"]:hover {
     background-color: #45a049;
+  }
+  
+  /* Messaggio di errore o successo */
+  #feedback {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Aggiungi spazio tra gli input e il pulsante */
+  input[type="text"],
+  input[type="password"],
+  input[type="number"] {
+    margin-bottom: 20px;
   }
   
