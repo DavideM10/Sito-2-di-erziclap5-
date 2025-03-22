@@ -123,3 +123,15 @@ button:focus {
   color: red;
   font-size: 18px;
 }
+
+/* Feedback corretto */
+#feedback.correct {
+  color: green;
+  font-size: 18px;
+}
+
+/* Feedback errato */
+#feedback.incorrect {
+  color: red;
+  font-size: 18px;
+}

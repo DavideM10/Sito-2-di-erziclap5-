@@ -20,6 +20,7 @@ function handleGuess() {
 
   if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
     feedbackElement.textContent = 'Inserisci un numero valido tra 1 e 100.';
+    feedbackElement.classList.remove('correct', 'incorrect');
     return;
   }
 
@@ -31,11 +32,11 @@ function handleGuess() {
     updateScoreDisplay();
     showGameResult('Hai indovinato il numero! Vuoi rigiocare o tornare alla home?');
   } else if (userGuess < secretNumber) {
-    feedbackElement.textContent = 'Il numero è più alto!';
+    feedbackElement.textContent = 'Il numero è più alto! Riprova.';
     feedbackElement.classList.remove('correct');
     feedbackElement.classList.add('incorrect');
   } else {
-    feedbackElement.textContent = 'Il numero è più basso!';
+    feedbackElement.textContent = 'Il numero è più basso! Riprova.';
     feedbackElement.classList.remove('correct');
     feedbackElement.classList.add('incorrect');
   }
