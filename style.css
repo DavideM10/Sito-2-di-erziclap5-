@@ -48,6 +48,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 button:hover {
@@ -55,9 +56,16 @@ button:hover {
 }
 
 button img {
-  width: 50%;
-  height: 50%;
+  width: 60%; /* Adatta la dimensione dell'immagine */
+  height: 60%;
   object-fit: cover;
+}
+
+button span {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #logout-btn {
