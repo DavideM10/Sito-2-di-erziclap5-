@@ -4,18 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
   <div class="login-container">
-    <h1>Login</h1>
+    <h1>Accedi al tuo Account</h1>
+    
     <form id="login-form">
-      <input type="text" id="username" placeholder="Nome Utente" required>
-      <input type="password" id="password" placeholder="Password" required>
+      <div class="input-container">
+        <label for="username">Nome utente</label>
+        <input type="text" id="username" placeholder="Inserisci il nome utente">
+      </div>
+      
+      <div class="input-container">
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Inserisci la password">
+          <button type="button" id="toggle-password">👁️</button>
+        </div>
+      </div>
+      
       <button type="submit">Accedi</button>
     </form>
-    <p>Non hai un account? <a href="register.html">Registrati</a></p>
+    
+    <p class="signup-link">Non hai un account? <a href="register.html">Registrati</a></p>
   </div>
-  <script src="script.js"></script>
+
+  <script src="login.js"></script>
 </body>
 </html>
