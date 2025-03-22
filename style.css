@@ -28,7 +28,7 @@ body {
     width: 100%;
   }
   
-  .game-container {
+  .game-container, .login-container, .register-container, .main-container {
     text-align: center;
     margin: 20px;
   }

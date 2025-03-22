@@ -1,4 +1,3 @@
-// script.js
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
 function saveUserData() {
@@ -27,25 +26,22 @@ function loginUser(username, password) {
   }
   return user;
 }
-// script.js
-let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-function checkGuess() {
-  const guess = parseInt(document.getElementById('guess').value);
-  const result = document.getElementById('result');
+document.getElementById('register-form')?.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const username = document.getElementById('new-username').value;
+  const password = document.getElementById('new-password').value;
+  registerUser(username, password);
+  alert('Registrazione riuscita! Ora puoi accedere.');
+  window.location.href = 'login.html';
+});
 
-  if (guess === randomNumber) {
-    result.textContent = 'Bravo! Hai indovinato!';
-    // Aggiungi token o punteggio qui
-  } else if (guess < randomNumber) {
-    result.textContent = 'Troppo basso, riprova!';
-  } else {
-    result.textContent = 'Troppo alto, riprova!';
+document.getElementById('login-form')?.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const user = loginUser(username, password);
+  if (user) {
+    window.location.href = 'index.html'; // Redirect alla pagina principale
   }
-}
-function updateScore(user) {
-    user.score += 10; // Aggiungi punti
-    user.tokens += 1; // Aggiungi token
-    saveUserData();
-  }
-  
+});
