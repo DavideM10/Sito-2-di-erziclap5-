@@ -7,30 +7,29 @@
   <link rel="stylesheet" href="registrazione.css">
 </head>
 <body>
+
   <div class="form-container">
-    <h1>Registrati</h1>
-    <p>Per registrarti chiedi al proprietario e inserisci i tuoi dati!</p>
-    
-    <!-- Form di registrazione -->
-    <form id="register-form">
-      <input type="text" id="new-username" placeholder="Nome utente" required><br>
-      <input type="password" id="new-password" placeholder="Password" required>
+    <h2>Per registrarti chiedi al proprietario e inserisci i tuoi dati!</h2>
+    <form id="registration-form">
+      <div class="form-field">
+        <label for="username">Nome utente</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="form-field">
+        <label for="age">Età</label>
+        <input type="number" id="age" name="age" required min="18" placeholder="Inserisci la tua età">
+      </div>
+
       <button type="submit">Registrati</button>
     </form>
   </div>
 
-  <script>
-    // Funzione per mostrare la password (se vuoi aggiungere l'iconcina per rivelarla)
-    const showPasswordBtn = document.getElementById('show-password-btn');
-    const passwordInput = document.getElementById('new-password');
-    
-    showPasswordBtn.addEventListener('click', function() {
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-      } else {
-        passwordInput.type = 'password';
-      }
-    });
-  </script>
+  <script src="registrazione.js"></script>
 </body>
 </html>

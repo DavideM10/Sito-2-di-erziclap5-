@@ -1,4 +1,6 @@
 let secretNumber = generateRandomNumber();
+let currentUser = JSON.parse(localStorage.getItem('currentUser')); // Ottieni i dati dell'utente
+
 const feedbackElement = document.getElementById('feedback');
 const userInputElement = document.getElementById('user-input');
 const submitButton = document.getElementById('submit-btn');
@@ -6,7 +8,6 @@ const gameResultElement = document.getElementById('game-result');
 const resultMessageElement = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again-btn');
 const goHomeButton = document.getElementById('go-home-btn');
-let score = 0;
 
 // Funzione per generare un numero casuale tra 1 e 100
 function generateRandomNumber() {
@@ -24,8 +25,9 @@ function handleGuess() {
 
   if (userGuess === secretNumber) {
     feedbackElement.textContent = 'Complimenti, hai indovinato!';
-    score += 5; // Aggiungi 5 punti per il gioco
-    updateScore();
+    currentUser.score += 5; // Aggiungi 5 punti all'utente
+    localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Salva i dati aggiornati nel localStorage
+    updateScoreDisplay();
     showGameResult('Hai indovinato il numero! Vuoi rigiocare o tornare alla home?');
   } else if (userGuess < secretNumber) {
     feedbackElement.textContent = 'Il numero è più alto!';
@@ -53,9 +55,9 @@ function goHome() {
   window.location.href = 'index.html'; // Reindirizza alla home
 }
 
-// Funzione per aggiornare il punteggio visualizzato
-function updateScore() {
-  document.getElementById('score').textContent = `Punteggio: ${score}`;
+// Funzione per aggiornare il punteggio dell'utente nella home
+function updateScoreDisplay() {
+  document.getElementById('score-display').textContent = `Punteggio: ${currentUser.score}`;
 }
 
 // Event listeners
