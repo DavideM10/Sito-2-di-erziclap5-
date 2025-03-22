@@ -8,7 +8,6 @@ const gameResultElement = document.getElementById('game-result');
 const resultMessageElement = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again-btn');
 const goHomeButton = document.getElementById('go-home-btn');
-const scoreDisplay = document.getElementById('score-display'); // Elemento per il punteggio
 
 // Funzione per generare un numero casuale tra 1 e 100
 function generateRandomNumber() {
@@ -26,14 +25,19 @@ function handleGuess() {
 
   if (userGuess === secretNumber) {
     feedbackElement.textContent = 'Complimenti, hai indovinato!';
+    feedbackElement.classList.add('correct');
     currentUser.score += 5; // Aggiungi 5 punti all'utente
     localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Salva i dati aggiornati nel localStorage
     updateScoreDisplay();
     showGameResult('Hai indovinato il numero! Vuoi rigiocare o tornare alla home?');
   } else if (userGuess < secretNumber) {
     feedbackElement.textContent = 'Il numero è più alto!';
+    feedbackElement.classList.remove('correct');
+    feedbackElement.classList.add('incorrect');
   } else {
     feedbackElement.textContent = 'Il numero è più basso!';
+    feedbackElement.classList.remove('correct');
+    feedbackElement.classList.add('incorrect');
   }
 }
 
@@ -45,9 +49,10 @@ function showGameResult(message) {
 
 // Funzione per rigiocare
 function playAgain() {
-  secretNumber = generateRandomNumber();
+  secretNumber = generateRandomNumber(); // Genera un nuovo numero
   userInputElement.value = ''; // Pulisce la barra di input
-  feedbackElement.textContent = '';
+  feedbackElement.textContent = ''; // Rimuove il feedback precedente
+  feedbackElement.classList.remove('correct', 'incorrect');
   gameResultElement.classList.add('hidden'); // Nasconde il messaggio di risultato
 }
 
@@ -56,8 +61,9 @@ function goHome() {
   window.location.href = 'index.html'; // Reindirizza alla home
 }
 
-// Funzione per aggiornare il punteggio dell'utente sulla home
+// Funzione per aggiornare il punteggio dell'utente nella home
 function updateScoreDisplay() {
+  const scoreDisplay = document.getElementById('score');
   scoreDisplay.textContent = `Punteggio: ${currentUser.score}`;
 }
 

@@ -1,7 +1,7 @@
-/* Impostazioni generali */
+/* Body */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* Sfondo grigio chiaro */
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,97 +10,116 @@ body {
   height: 100vh;
 }
 
-/* Contenitore del gioco */
 .game-container {
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 300px;
+  width: 100%;
+  max-width: 400px;
 }
 
-/* Stile per il titolo */
 h1 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-/* Stile per il punteggio */
+/* Visualizzazione del punteggio */
 #score {
   font-size: 18px;
+  color: #4CAF50;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 /* Feedback dell'utente */
 #feedback {
-  color: #f39c12;
+  font-size: 16px;
+  color: #ff5722;
   margin-bottom: 20px;
 }
 
-/* Stile per il campo di input */
+/* Barra di input */
 #user-input {
   padding: 10px;
   width: 80%;
+  font-size: 16px;
   margin-bottom: 20px;
+  border: 2px solid #ddd;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  transition: all 0.3s ease;
 }
 
-/* Pulsante indovina */
+#user-input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Pulsante Indovina */
 #submit-btn {
+  background-color: #4CAF50;
+  color: #fff;
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #27ae60;
-  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
 }
 
 #submit-btn:hover {
-  background-color: #2ecc71;
+  background-color: #45a049;
 }
 
-/* Contenitore del risultato */
+/* Risultato del gioco */
 #game-result {
+  margin-top: 20px;
   display: none;
 }
 
-#game-result p {
-  font-size: 18px;
-  color: #27ae60;
-  font-weight: bold;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #2980b9;
-}
-
-/* Nascondi il risultato quando il gioco non è finito */
 .hidden {
   display: none;
 }
 
-/* Specifiche per il bottone "Torna alla Home" */
-#go-home-btn {
-  background-color: #e74c3c;
+/* Pulsante Rigioca e Torna alla Home */
+button {
+  background-color: #2196F3;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 16px;
 }
 
-#go-home-btn:hover {
-  background-color: #c0392b;
+button:hover {
+  background-color: #1976D2;
+}
+
+/* Modal-style per la finestra di risultato */
+#game-result p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Anima il feedback */
+#feedback {
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+#feedback.correct {
+  color: green;
+  font-size: 18px;
+}
+
+#feedback.incorrect {
+  color: red;
+  font-size: 18px;
 }
