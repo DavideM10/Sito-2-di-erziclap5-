@@ -24,6 +24,7 @@ function handleGuess() {
   if (userGuess === secretNumber) {
     feedbackElement.textContent = 'Complimenti, hai indovinato!';
     showGameResult('Hai indovinato il numero! Vuoi rigiocare o tornare alla home?');
+    updateScoreAndTokens(10, 1); // Aggiungi 10 punti e 1 token al vincitore
   } else if (userGuess < secretNumber) {
     feedbackElement.textContent = 'Il numero è più alto!';
   } else {
@@ -48,6 +49,23 @@ function playAgain() {
 // Funzione per tornare alla home
 function goHome() {
   window.location.href = 'index.html'; // Reindirizza alla home
+}
+
+// Funzione per aggiornare il punteggio e i token dell'utente
+function updateScoreAndTokens(scoreIncrement, tokenIncrement) {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    currentUser.score += scoreIncrement;
+    currentUser.tokens += tokenIncrement;
+    saveUserData(); // Salva i dati aggiornati dell'utente
+  }
+}
+
+// Funzione per ottenere l'utente corrente
+function getCurrentUser() {
+  const username = localStorage.getItem('currentUser');
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  return users.find(user => user.username === username);
 }
 
 // Event listeners

@@ -1,9 +1,20 @@
-// Gestisci il click sui pulsanti per accedere ai giochi
-document.getElementById('game1').addEventListener('click', function() {
-    window.location.href = 'game1.html'; // Redirige al gioco 1
+window.onload = function() {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    document.getElementById('username-display').innerText = currentUser.username;
+    document.getElementById('score-display').innerText = `Punteggio: ${currentUser.score}`;
+    document.getElementById('tokens-display').innerText = `Token: ${currentUser.tokens}`;
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+    logout();
   });
-  
-  document.getElementById('game2').addEventListener('click', function() {
-    window.location.href = 'game2.html'; // Redirige al gioco 2 (simulando Blockbuster)
+
+  document.getElementById('numberGameBtn').addEventListener('click', function() {
+    numberGame(); // Inizia il gioco dei numeri
   });
-  
+
+  document.getElementById('blockbusterGameBtn').addEventListener('click', function() {
+    startBlockbusterGame(); // Inizia il gioco Blockbuster
+  });
+}
