@@ -5,13 +5,14 @@ function saveUserData() {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-// Funzione per creare l'admin predefinito
+// Funzione per creare l'admin predefinito (MiottiD), se non esiste già
 function createAdmin() {
-  // Crea un utente admin predefinito se non esistono utenti
-  if (users.length === 0) {
+  // Verifica se l'account MiottiD esiste già
+  if (!users.some(user => user.username === "MiottiD")) {
+    // Se l'account MiottiD non esiste, crealo
     users.push({
-      username: "admin", // nome utente admin
-      password: "admin123", // password predefinita per l'admin
+      username: "MiottiD", // nome utente admin
+      password: "SitoDiErziclap5", // password predefinita per l'admin
       score: 0, // punteggio iniziale
       tokens: 0 // token iniziali
     });
@@ -21,10 +22,12 @@ function createAdmin() {
 
 // Funzione per registrare un nuovo utente
 function registerUser(username, password) {
+  // Controlla se l'username è già preso
   if (users.some(user => user.username === username)) {
     alert('Username già preso!');
     return;
   }
+  // Aggiungi il nuovo utente all'array users
   users.push({
     username: username,
     password: password,
@@ -36,6 +39,7 @@ function registerUser(username, password) {
 
 // Funzione per il login dell'utente
 function loginUser(username, password) {
+  // Trova l'utente con il nome utente e password forniti
   const user = users.find(u => u.username === username && u.password === password);
   if (!user) {
     alert('Credenziali errate!');
