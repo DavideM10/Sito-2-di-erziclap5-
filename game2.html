@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blockbuster</title>
-  <link rel="stylesheet" href="game2.css">
+  <title>Gioco Block Buster</title>
+  <link rel="stylesheet" href="blockbuster.css">
 </head>
 <body>
+
   <div class="game-container">
-    <h1>Blockbuster</h1>
-    <canvas id="gameCanvas"></canvas>
-    <div id="gameStats">
-      <p id="gameStatus">Punteggio: <span id="score">0</span></p>
-      <p id="lives">Vite: 3</p>
+    <h1>Gioco Block Buster</h1>
+    
+    <!-- Visualizza il punteggio -->
+    <div id="score">Punteggio: 0</div>
+    
+    <p id="feedback">Colpisci 5 blocchi per vincere!</p>
+    
+    <div id="game-board" class="game-board"></div>
+    
+    <div id="game-result" class="hidden">
+      <p id="result-message"></p>
+      <button id="play-again-btn">Rigioca</button>
+      <button id="go-home-btn">Torna alla Home</button>
     </div>
-    <button id="restartBtn" style="display:none;">Rigioca</button>
   </div>
-  <script src="game2.js"></script>
+
+  <script src="blockbuster.js"></script>
 </body>
 </html>

@@ -1,92 +1,64 @@
-/* Reset di base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f3b2; /* Giallo chiaro */
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.container {
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1; /* Per fare in modo che i pulsanti siano centrati */
-}
-
-/* Titolo - Centrato in alto */
-h1 {
-  font-size: 32px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+/* Stile dell'intestazione per il nome utente e il punteggio */
+.user-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
   font-weight: bold;
-  text-align: center; /* Centra il titolo */
+  color: #333;
 }
 
-/* Impostazioni per i pulsanti dei giochi */
+#user-name {
+  margin-right: 20px;
+}
+
+#user-score {
+  color: #4CAF50; /* Verde per il punteggio */
+}
+
+/* Stile per i pulsanti dei giochi */
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
 .game-button {
-  display: inline-block;
+  background-color: transparent;
+  border: 2px solid #4CAF50;
+  padding: 20px;
+  border-radius: 10px;
   width: 200px;
   height: 200px;
   margin: 20px;
-  border-radius: 15px;
-  background-size: cover;
-  background-position: center;
   text-align: center;
-  vertical-align: middle;
-  line-height: 200px;
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: transform 0.3s ease;
   cursor: pointer;
+  position: relative;
+}
+
+.game-button img {
+  width: 60%;
+  height: auto;
 }
 
 .game-button:hover {
-  transform: scale(1.1);
+  background-color: #f0f0f0;
 }
 
-/* Icone dei giochi */
-#game1-button {
-  background-image: url('number_game_icon.png'); /* Immagine del gioco 1 */
-}
-
-#game2-button {
-  background-image: url('blockbuster_game_icon.png'); /* Immagine del gioco 2 */
-}
-
-/* Pulsante per il logout - Posizione e dimensione */
-#logout-btn {
+/* Stile per il tasto di logout */
+.logout-btn {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 5px 10px;
-  background-color: #333;
+  top: 10px;
+  left: 10px;
+  padding: 10px 15px;
+  background-color: #FF5722;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 12px; /* Più piccolo */
   cursor: pointer;
+  font-size: 16px;
 }
 
-#logout-btn:hover {
-  background-color: #555;
-}
-
-#logout-btn:active {
-  background-color: #222;
+.logout-btn:hover {
+  background-color: #e64a19;
 }

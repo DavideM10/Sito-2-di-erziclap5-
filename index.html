@@ -3,30 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Home Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="logout-btn" onclick="logout()">Logout</button>
-
-  <div class="container">
-    <h1>Benvenuto nel tuo Sito di Giochi!</h1>
-
-    <div id="game1-button" class="game-button" onclick="location.href = 'game1.html'">
-      Gioco Numeri
+  <div class="header">
+    <div class="user-info">
+      <span id="username-display"></span> | <span id="score-display"></span>
     </div>
-
-    <div id="game2-button" class="game-button" onclick="location.href = 'blockbuster.html'">
-      Block Buster
-    </div>
+    <button id="logout-btn" onclick="logout()">Log Out</button>
   </div>
 
-  <script>
-    function logout() {
-      // Funzione di logout, per esempio per cancellare il sessionStorage o localStorage
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'login.html'; // Reindirizza alla pagina di login
-    }
-  </script>
+  <div class="game-buttons">
+    <button id="game1-btn" onclick="window.location.href='game1.html'">
+      <img src="img/number_game_icon.png" alt="Number Game">
+      <p>Gioco Numeri</p>
+    </button>
+    <button id="game2-btn" onclick="window.location.href='blockbuster.html'">
+      <img src="img/blockbuster_game_icon.png" alt="Block Buster">
+      <p>Block Buster</p>
+    </button>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>

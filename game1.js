@@ -1,4 +1,7 @@
 let secretNumber = generateRandomNumber();
+let userScore = 0; // Punteggio dell'utente
+
+// Elementi del DOM
 const feedbackElement = document.getElementById('feedback');
 const userInputElement = document.getElementById('user-input');
 const submitButton = document.getElementById('submit-btn');
@@ -6,6 +9,7 @@ const gameResultElement = document.getElementById('game-result');
 const resultMessageElement = document.getElementById('result-message');
 const playAgainButton = document.getElementById('play-again-btn');
 const goHomeButton = document.getElementById('go-home-btn');
+const scoreElement = document.getElementById('score');
 
 // Funzione per generare un numero casuale tra 1 e 100
 function generateRandomNumber() {
@@ -23,8 +27,9 @@ function handleGuess() {
 
   if (userGuess === secretNumber) {
     feedbackElement.textContent = 'Complimenti, hai indovinato!';
+    userScore += 5; // Aggiungi 5 punti all'utente per aver indovinato
+    updateScore(); // Mostra il punteggio aggiornato
     showGameResult('Hai indovinato il numero! Vuoi rigiocare o tornare alla home?');
-    updateScoreAndTokens(10, 1); // Aggiungi 10 punti e 1 token al vincitore
   } else if (userGuess < secretNumber) {
     feedbackElement.textContent = 'Il numero è più alto!';
   } else {
@@ -40,7 +45,7 @@ function showGameResult(message) {
 
 // Funzione per rigiocare
 function playAgain() {
-  secretNumber = generateRandomNumber();
+  secretNumber = generateRandomNumber(); // Genera un nuovo numero segreto
   userInputElement.value = ''; // Pulisce la barra di input
   feedbackElement.textContent = '';
   gameResultElement.classList.add('hidden'); // Nasconde il messaggio di risultato
@@ -51,24 +56,15 @@ function goHome() {
   window.location.href = 'index.html'; // Reindirizza alla home
 }
 
-// Funzione per aggiornare il punteggio e i token dell'utente
-function updateScoreAndTokens(scoreIncrement, tokenIncrement) {
-  const currentUser = getCurrentUser();
-  if (currentUser) {
-    currentUser.score += scoreIncrement;
-    currentUser.tokens += tokenIncrement;
-    saveUserData(); // Salva i dati aggiornati dell'utente
-  }
-}
-
-// Funzione per ottenere l'utente corrente
-function getCurrentUser() {
-  const username = localStorage.getItem('currentUser');
-  let users = JSON.parse(localStorage.getItem('users')) || [];
-  return users.find(user => user.username === username);
+// Funzione per aggiornare il punteggio visualizzato
+function updateScore() {
+  scoreElement.textContent = `Punteggio: ${userScore}`;
 }
 
 // Event listeners
 submitButton.addEventListener('click', handleGuess);
 playAgainButton.addEventListener('click', playAgain);
 goHomeButton.addEventListener('click', goHome);
+
+// Inizializza il punteggio all'inizio
+updateScore();

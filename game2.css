@@ -1,54 +1,110 @@
-/* Stili di base */
+/* Reset di base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #333;
-  }
-  
-  .game-container {
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  canvas {
-    background-color: #222;
-    border: 2px solid #000;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  #gameStats {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f3b2; /* Giallo chiaro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Contenitore del gioco */
+.game-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#feedback {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.block {
+  width: 80px;
+  height: 80px;
+  background-color: #2196F3;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.block:hover {
+  background-color: #0b7dda;
+}
+
+.block-hit {
+  background-color: #4CAF50;
+}
+
+#score {
+  font-size: 22px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.game-result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+#play-again-btn {
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#play-again-btn:hover {
+  background-color: #0b7dda;
+}
+
+#go-home-btn {
+  padding: 10px 20px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#go-home-btn:hover {
+  background-color: #e68900;
+}
