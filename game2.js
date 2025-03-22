@@ -1,71 +1,69 @@
-let userScore = 0; // Punteggio dell'utente
-const targetBlocks = 5; // Numero di blocchi da colpire per vincere
-let hitBlocks = 0; // Numero di blocchi colpiti dall'utente
-
-// Elementi del DOM
-const feedbackElement = document.getElementById('feedback');
-const gameBoardElement = document.getElementById('game-board');
+// Inizializza variabili
+let score = 0;
+const gridContainer = document.getElementById('grid-container');
 const scoreElement = document.getElementById('score');
-const gameResultElement = document.getElementById('game-result');
-const resultMessageElement = document.getElementById('result-message');
-const playAgainButton = document.getElementById('play-again-btn');
-const goHomeButton = document.getElementById('go-home-btn');
+const restartBtn = document.getElementById('restart-btn');
 
-// Funzione per generare il gioco con blocchi
-function generateGameBoard() {
-  gameBoardElement.innerHTML = ''; // Pulisce il gioco precedente
-  hitBlocks = 0; // Resetta i blocchi colpiti
-
-  // Crea 25 blocchi
-  for (let i = 0; i < 25; i++) {
+// Funzione per generare una griglia di blocchi
+function generateGrid() {
+  gridContainer.innerHTML = ''; // Pulisce la griglia
+  let blocks = [];
+  for (let i = 0; i < 64; i++) {
     const block = document.createElement('div');
-    block.classList.add('block');
+    block.classList.add('grid-item');
+    block.style.backgroundColor = getRandomColor(); // Colore casuale per ogni blocco
     block.addEventListener('click', () => handleBlockClick(block));
-    gameBoardElement.appendChild(block);
+    gridContainer.appendChild(block);
+    blocks.push(block);
   }
 }
 
-// Funzione per gestire il click sui blocchi
+// Funzione per ottenere un colore casuale
+function getRandomColor() {
+  const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Funzione per gestire il clic su un blocco
 function handleBlockClick(block) {
-  if (block.classList.contains('block-hit')) return; // Blocca il click su blocchi già colpiti
-
-  block.classList.add('block-hit'); // Colpisci il blocco
-  hitBlocks++;
-
-  // Se l'utente ha colpito tutti i blocchi
-  if (hitBlocks === targetBlocks) {
-    userScore += 20; // Aggiungi 20 punti all'utente
-    updateScore(); // Mostra il punteggio aggiornato
-    showGameResult('Hai vinto! Vuoi rigiocare o tornare alla home?');
+  const selectedColor = block.style.backgroundColor;
+  let blocksToRemove = [];
+  
+  // Trova tutti i blocchi adiacenti con lo stesso colore
+  function findAdjacentBlocks(index) {
+    if (index < 0 || index >= 64) return; // Limiti della griglia
+    const block = gridContainer.children[index];
+    if (block && block.style.backgroundColor === selectedColor && !blocksToRemove.includes(block)) {
+      blocksToRemove.push(block);
+      // Aggiungi i blocchi vicini
+      const row = Math.floor(index / 8);
+      const col = index % 8;
+      if (col > 0) findAdjacentBlocks(index - 1); // Blocchi a sinistra
+      if (col < 7) findAdjacentBlocks(index + 1); // Blocchi a destra
+      if (row > 0) findAdjacentBlocks(index - 8); // Blocchi sopra
+      if (row < 7) findAdjacentBlocks(index + 8); // Blocchi sotto
+    }
   }
+
+  // Trova e rimuovi i blocchi adiacenti
+  const blockIndex = Array.from(gridContainer.children).indexOf(block);
+  findAdjacentBlocks(blockIndex);
+  
+  // Rimuovi i blocchi trovati e aggiorna il punteggio
+  blocksToRemove.forEach(b => b.remove());
+  score += blocksToRemove.length * 10; // Aggiungi punteggio
+  scoreElement.textContent = score;
+  
+  // Rimuovi blocchi e aggiungi nuovi blocchi
+  setTimeout(generateGrid, 500); // Rigenera la griglia dopo un breve intervallo
 }
 
-// Funzione per mostrare il risultato e le opzioni
-function showGameResult(message) {
-  resultMessageElement.textContent = message;
-  gameResultElement.classList.remove('hidden');
-}
+// Funzione per riavviare il gioco
+restartBtn.addEventListener('click', () => {
+  score = 0;
+  scoreElement.textContent = score;
+  generateGrid();
+});
 
-// Funzione per rigiocare
-function playAgain() {
-  generateGameBoard(); // Crea una nuova partita
-  gameResultElement.classList.add('hidden'); // Nasconde il messaggio di risultato
-}
-
-// Funzione per tornare alla home
-function goHome() {
-  window.location.href = 'index.html'; // Reindirizza alla home
-}
-
-// Funzione per aggiornare il punteggio visualizzato
-function updateScore() {
-  scoreElement.textContent = `Punteggio: ${userScore}`;
-}
-
-// Inizializza il gioco quando la pagina viene caricata
-generateGameBoard();
-updateScore();
-
-// Event listeners
-playAgainButton.addEventListener('click', playAgain);
-goHomeButton.addEventListener('click', goHome);
+// Inizializza il gioco
+generateGrid();
