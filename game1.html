@@ -3,35 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Indovina il Numero</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Game 1 - Indovina il Numero</title>
+  <link rel="stylesheet" href="game1.css">
 </head>
 <body>
   <div class="game-container">
     <h1>Indovina il Numero!</h1>
-    <p>Indovina un numero tra 1 e 100</p>
-    <input type="number" id="guess" placeholder="Inserisci un numero" min="1" max="100">
-    <button onclick="checkGuess()">Indovina!</button>
-    <p id="result"></p>
+    <p>Prova a indovinare un numero compreso tra 1 e 100</p>
+
+    <input type="number" id="user-input" placeholder="Inserisci il numero" />
+    <button id="submit-btn">Invia</button>
+    <p id="feedback"></p>
+
+    <!-- Sezione finale per il messaggio di vittoria e le opzioni -->
+    <div id="game-result" class="hidden">
+      <p id="result-message"></p>
+      <button id="play-again-btn">Rigioca</button>
+      <button id="go-home-btn">Torna alla Home</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-
-    function checkGuess() {
-      const guess = document.getElementById('guess').value;
-      const result = document.getElementById('result');
-
-      if (guess == randomNumber) {
-        result.textContent = 'Bravo! Hai indovinato il numero!';
-        // Aggiorna il punteggio
-      } else if (guess < randomNumber) {
-        result.textContent = 'Troppo basso, riprova!';
-      } else {
-        result.textContent = 'Troppo alto, riprova!';
-      }
-    }
-  </script>
+  <script src="game1.js"></script>
 </body>
 </html>
