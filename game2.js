@@ -1,5 +1,5 @@
 // Inizializza variabili
-let score = 0;
+let score = parseInt(localStorage.getItem('score')) || 0; // Recupera il punteggio salvato
 const gridContainer = document.getElementById('grid-container');
 const scoreElement = document.getElementById('score');
 const restartBtn = document.getElementById('restart-btn');
@@ -51,8 +51,13 @@ function handleBlockClick(block) {
   
   // Rimuovi i blocchi trovati e aggiorna il punteggio
   blocksToRemove.forEach(b => b.remove());
-  score += blocksToRemove.length * 10; // Aggiungi punteggio
-  scoreElement.textContent = score;
+  
+  // Aggiungi 20 punti per ogni gruppo di blocchi rimossi
+  if (blocksToRemove.length > 0) {
+    score += 20; // 20 punti per ogni vincita
+    localStorage.setItem('score', score); // Salva il punteggio nel localStorage
+    scoreElement.textContent = score; // Aggiorna la visualizzazione del punteggio
+  }
   
   // Rimuovi blocchi e aggiungi nuovi blocchi
   setTimeout(generateGrid, 500); // Rigenera la griglia dopo un breve intervallo
@@ -60,7 +65,8 @@ function handleBlockClick(block) {
 
 // Funzione per riavviare il gioco
 restartBtn.addEventListener('click', () => {
-  score = 0;
+  score = 0; // Reset del punteggio
+  localStorage.setItem('score', score); // Salva il punteggio nel localStorage
   scoreElement.textContent = score;
   generateGrid();
 });
