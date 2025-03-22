@@ -10,7 +10,7 @@
 
   <!-- Intestazione con nome e punteggio dell'utente -->
   <div id="user-info" class="user-info">
-    <span id="user-name"></span> | <span id="user-score"></span>
+    <span id="user-name">Nome Utente</span> | <span id="user-score">Punteggio: 0</span>
   </div>
 
   <!-- Titolone simpatico -->
@@ -19,19 +19,17 @@
   </div>
 
   <!-- Pulsanti per i giochi -->
-  <div class="game-buttons">
-    <button class="game-button" id="number-game-btn">
-      <img src="img/number_game_icon.png" alt="Gioco dei Numeri" class="game-icon">
-      <div class="game-text">Gioco dei Numeri</div>
-    </button>
-    <button class="game-button" id="blockbuster-game-btn">
-      <img src="img/blockbuster_game_icon.png" alt="Gioco Blockbuster" class="game-icon">
-      <div class="game-text">Blockbuster</div>
-    </button>
+  <div class="game-buttons-container">
+    <div class="game-button" style="background-image: url('img/number_game_icon.png');" onclick="location.href='game1.html'">
+      <div class="game-button-text">Gioco dei Numeri</div>
+    </div>
+    <div class="game-button" style="background-image: url('img/blockbuster_game_icon.png');" onclick="location.href='game2.html'">
+      <div class="game-button-text">Blockbuster</div>
+    </div>
   </div>
 
   <!-- Tasto logout -->
-  <button id="logout-btn" class="logout-btn">Logout</button>
+  <button id="logout-btn" class="logout-btn" onclick="logout()">Logout</button>
 
   <script src="index.js"></script>
 </body>
