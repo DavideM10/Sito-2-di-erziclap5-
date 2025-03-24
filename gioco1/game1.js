@@ -59,7 +59,7 @@ function playAgain() {
 
 // Funzione per tornare alla home
 function goHome() {
-  window.location.href = 'index.html'; // Reindirizza alla home
+  window.location.href = 'index/index.html'; // Reindirizza alla home
 }
 
 // Funzione per aggiornare il punteggio dell'utente nella home

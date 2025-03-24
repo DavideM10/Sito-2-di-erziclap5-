@@ -1,75 +1,33 @@
-// Inizializza variabili
-let score = parseInt(localStorage.getItem('score')) || 0; // Recupera il punteggio salvato
-const gridContainer = document.getElementById('grid-container');
-const scoreElement = document.getElementById('score');
-const restartBtn = document.getElementById('restart-btn');
-
-// Funzione per generare una griglia di blocchi
-function generateGrid() {
-  gridContainer.innerHTML = ''; // Pulisce la griglia
-  let blocks = [];
-  for (let i = 0; i < 64; i++) {
-    const block = document.createElement('div');
-    block.classList.add('grid-item');
-    block.style.backgroundColor = getRandomColor(); // Colore casuale per ogni blocco
-    block.addEventListener('click', () => handleBlockClick(block));
-    gridContainer.appendChild(block);
-    blocks.push(block);
-  }
-}
-
-// Funzione per ottenere un colore casuale
-function getRandomColor() {
-  const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
-  return colors[Math.floor(Math.random() * colors.length)];
-}
-
-// Funzione per gestire il clic su un blocco
 function handleBlockClick(block) {
   const selectedColor = block.style.backgroundColor;
   let blocksToRemove = [];
-  
-  // Trova tutti i blocchi adiacenti con lo stesso colore
+
   function findAdjacentBlocks(index) {
-    if (index < 0 || index >= 64) return; // Limiti della griglia
+    if (index < 0 || index >= 64) return;
     const block = gridContainer.children[index];
     if (block && block.style.backgroundColor === selectedColor && !blocksToRemove.includes(block)) {
       blocksToRemove.push(block);
-      // Aggiungi i blocchi vicini
       const row = Math.floor(index / 8);
       const col = index % 8;
-      if (col > 0) findAdjacentBlocks(index - 1); // Blocchi a sinistra
-      if (col < 7) findAdjacentBlocks(index + 1); // Blocchi a destra
-      if (row > 0) findAdjacentBlocks(index - 8); // Blocchi sopra
-      if (row < 7) findAdjacentBlocks(index + 8); // Blocchi sotto
+      if (col > 0) findAdjacentBlocks(index - 1);
+      if (col < 7) findAdjacentBlocks(index + 1);
+      if (row > 0) findAdjacentBlocks(index - 8);
+      if (row < 7) findAdjacentBlocks(index + 8);
     }
   }
 
-  // Trova e rimuovi i blocchi adiacenti
   const blockIndex = Array.from(gridContainer.children).indexOf(block);
   findAdjacentBlocks(blockIndex);
-  
-  // Rimuovi i blocchi trovati e aggiorna il punteggio
+
   blocksToRemove.forEach(b => b.remove());
-  
-  // Aggiungi 20 punti per ogni gruppo di blocchi rimossi
+
+  // Aggiungi punti e feedback
   if (blocksToRemove.length > 0) {
-    score += 20; // 20 punti per ogni vincita
-    localStorage.setItem('score', score); // Salva il punteggio nel localStorage
-    scoreElement.textContent = score; // Aggiorna la visualizzazione del punteggio
+    score += 20;
+    alert(`Hai rimosso ${blocksToRemove.length} blocchi!`);
+    localStorage.setItem('score', score);
+    scoreElement.textContent = score;
   }
-  
-  // Rimuovi blocchi e aggiungi nuovi blocchi
-  setTimeout(generateGrid, 500); // Rigenera la griglia dopo un breve intervallo
+
+  setTimeout(generateGrid, 500);
 }
-
-// Funzione per riavviare il gioco
-restartBtn.addEventListener('click', () => {
-  score = 0; // Reset del punteggio
-  localStorage.setItem('score', score); // Salva il punteggio nel localStorage
-  scoreElement.textContent = score;
-  generateGrid();
-});
-
-// Inizializza il gioco
-generateGrid();

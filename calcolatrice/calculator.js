@@ -35,5 +35,5 @@ function calculate(operation) {
 
 // Funzione per tornare alla home
 function goHome() {
-  window.location.href = 'index.html'; // Reindirizza alla home
+  window.location.href = 'index/index.html'; // Reindirizza alla home
 }

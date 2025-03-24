@@ -5,7 +5,7 @@ let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if (!currentUser) {
   // Se non c'è un utente loggato, mostra un messaggio di errore
   alert('Non sei loggato! Accedi o registrati prima.');
-  window.location.href = 'login.html'; // Reindirizza alla pagina di login
+  window.location.href = 'login/login.html'; // Reindirizza alla pagina di login
 } else {
   // Mostra il nome utente e il punteggio nella home
   document.getElementById('username-display').textContent = currentUser.username;
@@ -25,5 +25,5 @@ document.getElementById('logout-btn').addEventListener('click', function() {
   localStorage.removeItem('currentUser');
   
   // Reindirizza alla pagina di login
-  window.location.href = 'login.html';
+  window.location.href = 'login/login.html';
 });
